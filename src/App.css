@@ -1,0 +1,77 @@
+*{
+  background-color: #d5eaee;
+}
+
+body {
+  background: -webkit-linear-gradient(top, #fff 0%, #f2f2f2 25%, rgba(#444, 0.3) 100%);
+  background-color: #89ecea;
+  min-height: 100vh;
+}
+
+.mainPage {
+  width: 80%;
+  display: block;
+  margin: auto auto;
+  text-align: center;
+}
+
+.textDisplayArea{
+  border-style: solid;
+  border-width: 4px;
+  border-color: rgb(92, 172, 215);
+  height: 60px;
+  background-color: rgb(172, 239, 238);
+
+  /* width: 70%; */
+} 
+
+button{
+  box-sizing: border-box;
+  line-height: 60px;
+  font-size: 25px;
+  text-align: center;
+  width: 50px;
+  /* color: #555; */
+  color:rgb(8, 143, 173);
+  cursor: pointer;
+  margin: 3px 8px;
+  height: 50px;
+  border-color: #f2f2f2;
+  border-style: solid;
+  text-shadow: 0 0.5px 1px #777, 0 2px 6px #f2f2f2;
+  border-width: 1px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(top, #f9f9f9 0%, #53c1bf 80%, #89eee9 100%);
+  font-family: sans-serif;
+  display: inline-block;
+  transition: box-shadow 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 0 1px #888,0 1px 0 #fff, 0 6px 0 #C0C0C0, 0 8px 17px rgba(#444, 0.4), 2px 1px 4px rgba(#444, 0.25), -2px 1px 4px rgba(#444, 0.25), 0 9px 16px rgba(#444, 0.1);
+}
+
+button.action{
+  width: auto;
+  font-size: 20px;
+}
+
+  .my-select-menu{
+    color: white;
+    background-color: rgb(17, 221, 211);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  select option{
+    color: rgb(11, 199, 193);
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .my-select-menu::part(option) {
+    color: rgb(11, 199, 193);
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+
