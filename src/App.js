@@ -21,8 +21,7 @@ class App extends Component{
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  handleKeyPress = (event) => 
-  {
+  handleKeyPress = (event) => {
     this.updateHistory();
     let value = event.target.value;
     if (value == 'SPACE') {
@@ -77,11 +76,9 @@ class App extends Component{
     let newInput = this.state.input;
     if (event.target.value == 'LOWER ALL') {
       newInput.forEach(help.lowerAll);
-      // console.log(newInput);
     }
     else {
       newInput.forEach(help.upperAll);
-      // console.log(newInput);
     }
     this.setState({ input: newInput });
   }
@@ -132,7 +129,6 @@ class App extends Component{
     this.updateHistory();
     let newInput = this.state.input;
     let lastStyle = newInput[newInput.length - 1].textStyle;
-    console.log(lastStyle);
     let newStyle = help.buildStyle(newSize+'px', lastStyle.color, lastStyle.fontFamily);
     let newBlock = { text: '', textStyle: newStyle };
     newInput.push(newBlock);
@@ -152,17 +148,27 @@ class App extends Component{
   updateHistory = () => {
     let newHistory = structuredClone(this.state.history);
     let newState = structuredClone(this.state);
+    delete newState.history;
     newHistory.push(newState);
-    if (newHistory.length > 15) {
+    if (newHistory.length > 100) {
       newHistory.splice(0, 1);
     }
     this.setState({ history: newHistory });
+    console.log(this.state.history.length);
+
   }
 
   handleUndo = () => {
     if (this.state.history.length > 0) {
-      let newState = structuredClone(this.state.history[this.state.history.length - 1]);
-      this.setState(newState);
+      let newHistory = structuredClone(this.state.history);
+      let lastState = structuredClone(newHistory[newHistory.length - 1]);
+      newHistory.pop();
+      this.setState({ input: lastState.input });
+      this.setState({ capsLk: lastState.capsLk });
+      this.setState({ lang: lastState.lang });
+      this.setState({ emoji: lastState.emoji });
+      this.setState({ history: newHistory });
+      console.log(this.state.history.length);
     }
   }
   
